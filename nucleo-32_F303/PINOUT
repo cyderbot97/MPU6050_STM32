@@ -1,0 +1,30 @@
+---	Ressource ---
+
+--- Pin configuration ---
+
+PA9		->		USART1 
+PA10	->		USART1
+
+PA8		->		OUTPUT_COMPARE/SERVO
+//PA9		->		OUTPUT_COMPARE/SERVO
+//PA10	->		OUTPUT_COMPARE/SERVO
+PA11	->		OUTPUT_COMPARE/SERVO
+PB0		->		OUTPUT_COMPARE/SERVO
+PB1		->		OUTPUT_COMPARE/SERVO
+PB4		->		OUTPUT_COMPARE/SERVO
+PB5		->		OUTPUT_COMPARE/SERVO
+
+
+--- Timer ---
+TIM1	->		OUTPUT_COMPARE for PA
+TIM3	->		OUTPUT_COMPARE for PB
+
+
+--- Peripheral ---
+DMA1_channel5 	->		USART1
+
+
+
+
+
+--- END ---
