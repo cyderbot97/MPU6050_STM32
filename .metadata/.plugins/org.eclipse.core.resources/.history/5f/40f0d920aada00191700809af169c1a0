@@ -9,6 +9,11 @@
 #define APP_INC_MAIN_H_
 //#include "MahonyAHRS.h"
 
+#define A_R 16384.0 // 32768/2
+#define G_R 131.0 // 32768/250
+#define RAD_A_DEG = 57.295779
+
+
 /* Global functions */
 
 int my_printf	(const char *format, ...);

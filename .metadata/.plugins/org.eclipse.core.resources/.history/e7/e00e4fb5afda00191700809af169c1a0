@@ -54,24 +54,25 @@ int main(void)
 	BSP_I2C1_Write(0x68, 0x6b, tx_data, 2);
 	delay_ms(10);
 
+	BSP_I2C1_Write(0x68, 0x6b, tx_data, 2);
+	delay_ms(10);
+
 
 
 	while(1)
 	{
+		BSP_I2C1_Read(0x68,0x43,rx_data,6);
 
+		GyX = (rx_data[0]<<8 | rx_data[1]);//131;
+		GyY = (rx_data[2]<<8 | rx_data[3]);//131;
+		GyZ = (rx_data[4]<<8 | rx_data[5]);//131;
 
 
 		BSP_I2C1_Read(0x68,0x3B,rx_data,6);
 
-		AcX = (rx_data[0]<<8 | rx_data[1]);
-		AcY = (rx_data[2]<<8 | rx_data[3]);
-		AcZ = (rx_data[4]<<8 | rx_data[5]);
-
-		BSP_I2C1_Read(0x68,0x43,rx_data,6);
-
-		GyX = (rx_data[0]<<8 | rx_data[1]);
-		GyY = (rx_data[2]<<8 | rx_data[3]);
-		GyZ = (rx_data[4]<<8 | rx_data[5]);
+		AcX = (rx_data[0]<<8 | rx_data[1]);//2;
+		AcY = (rx_data[2]<<8 | rx_data[3]);//2;
+		AcZ = (rx_data[4]<<8 | rx_data[5]);//2;
 
 
 		Gy[0] = GyX/G_R;
@@ -88,9 +89,22 @@ int main(void)
 
 		Angle[2] = Angle[2]+Gy[2]*dt;
 
+
+
 		angle0 = Angle[0];
 		angle1 = Angle[1];
 		angle2 = Angle[2];
+
+
+
+
+		//my_printf("gx = %d,gy = %d,gz = %d, ax = %d,ay = %d,az = %d\r\n",gx/131,gy/131,gz/131, ax/131,ay/131,az/131);
+
+		//MahonyAHRSupdateIMU(gx, gy, gz, ax, ay, az);
+
+		//angle=0.98*(angle+(float)gy*0.01/131) + 0.02*atan2((double_t)ax,(double_t)az)*180/3;
+
+		//my_printf("angle = %d\r\n",(uint16_t)angle);
 
 		delay_ms(10);
 

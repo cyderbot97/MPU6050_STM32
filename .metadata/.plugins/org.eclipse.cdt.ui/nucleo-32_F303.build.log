@@ -1,0 +1,35 @@
+09:41:42 **** Rebuild of configuration Debug for project nucleo-32_F303 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\delay.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F303x8 -DUSE_HSI -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\app\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\bsp\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\core -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\delay.o 
+arm-atollic-eabi-gcc -c ..\app\src\stm32f3xx_it.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F303x8 -DUSE_HSI -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\app\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\bsp\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\core -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\stm32f3xx_it.o 
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F303x8 -DUSE_HSI -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\app\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\bsp\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\core -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -g -Wa,--warn -x assembler-with-cpp -specs=nano.specs -o cmsis\device\src\startup_stm32f303x8.o ..\cmsis\device\src\startup_stm32f303x8.s 
+arm-atollic-eabi-gcc -c ..\bsp\src\i2c.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F303x8 -DUSE_HSI -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\app\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\bsp\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\core -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\i2c.o 
+arm-atollic-eabi-gcc -c ..\cmsis\device\src\system_stm32f3xx.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F303x8 -DUSE_HSI -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\app\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\bsp\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\core -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o cmsis\device\src\system_stm32f3xx.o 
+arm-atollic-eabi-gcc -c ..\app\src\main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F303x8 -DUSE_HSI -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\app\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\bsp\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\core -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\main.o 
+..\app\src\main.c: In function 'main':
+..\app\src\main.c:40:2: warning: implicit declaration of function 'BSP_LED_Init' [-Wimplicit-function-declaration]
+  BSP_LED_Init();
+  ^~~~~~~~~~~~
+..\app\src\main.c:32:32: warning: unused variable 'gz' [-Wunused-variable]
+  uint16_t  ax, ay, az, gx, gy, gz;
+                                ^~
+..\app\src\main.c:32:28: warning: unused variable 'gy' [-Wunused-variable]
+  uint16_t  ax, ay, az, gx, gy, gz;
+                            ^~
+..\app\src\main.c:32:24: warning: unused variable 'gx' [-Wunused-variable]
+  uint16_t  ax, ay, az, gx, gy, gz;
+                        ^~
+..\app\src\main.c:32:20: warning: unused variable 'az' [-Wunused-variable]
+  uint16_t  ax, ay, az, gx, gy, gz;
+                    ^~
+..\app\src\main.c:32:16: warning: unused variable 'ay' [-Wunused-variable]
+  uint16_t  ax, ay, az, gx, gy, gz;
+                ^~
+..\app\src\main.c:32:12: warning: unused variable 'ax' [-Wunused-variable]
+  uint16_t  ax, ay, az, gx, gy, gz;
+            ^~
+Command canceled
+
+09:41:43 Build Finished (took 1s.222ms)
+
