@@ -2016,3 +2016,30 @@ Output sent to: nucleo-32_F303.list
 Generate listing file done
 Generate build reports done
 Info: Nothing to build for nucleo-32_F303
+14:51:13 **** Rebuild of configuration Debug for project nucleo-32_F303 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F303x8 -DUSE_HSI -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\app\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\bsp\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\core -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -g -Wa,--warn -x assembler-with-cpp -specs=nano.specs -o cmsis\device\src\startup_stm32f303x8.o ..\cmsis\device\src\startup_stm32f303x8.s 
+arm-atollic-eabi-gcc -c ..\app\src\MadgwickAHRS.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F303x8 -DUSE_HSI -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\app\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\bsp\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\core -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\MadgwickAHRS.o 
+arm-atollic-eabi-gcc -c ..\bsp\src\i2c.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F303x8 -DUSE_HSI -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\app\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\bsp\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\core -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\i2c.o 
+arm-atollic-eabi-gcc -c ..\app\src\printf-stdarg.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F303x8 -DUSE_HSI -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\app\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\bsp\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\core -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\printf-stdarg.o 
+arm-atollic-eabi-gcc -c ..\app\src\stm32f3xx_it.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F303x8 -DUSE_HSI -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\app\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\bsp\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\core -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\stm32f3xx_it.o 
+arm-atollic-eabi-gcc -c ..\cmsis\device\src\system_stm32f3xx.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F303x8 -DUSE_HSI -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\app\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\bsp\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\core -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o cmsis\device\src\system_stm32f3xx.o 
+arm-atollic-eabi-gcc -c ..\app\src\main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F303x8 -DUSE_HSI -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\app\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\bsp\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\core -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\main.o 
+..\app\src\main.c: In function 'main':
+..\app\src\main.c:39:2: warning: implicit declaration of function 'BSP_LED_Init' [-Wimplicit-function-declaration]
+  BSP_LED_Init();
+  ^~~~~~~~~~~~
+arm-atollic-eabi-gcc -c ..\bsp\src\delay.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F303x8 -DUSE_HSI -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\app\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\bsp\inc -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\core -IC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\delay.o 
+arm-atollic-eabi-gcc -o nucleo-32_F303.elf app\src\MadgwickAHRS.o app\src\main.o app\src\printf-stdarg.o app\src\stm32f3xx_it.o bsp\src\bsp.o bsp\src\delay.o bsp\src\i2c.o cmsis\device\src\startup_stm32f303x8.o cmsis\device\src\system_stm32f3xx.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -TC:\Users\cyril\Documents\GitHub\MPU6050_STM32\nucleo-32_F303\STM32F303K8Tx_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=nucleo-32_F303.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list nucleo-32_F303.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  16804	    128	   1640	  18572	   488c	nucleo-32_F303.elf
+Print size information done
+Generate listing file
+Output sent to: nucleo-32_F303.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for nucleo-32_F303

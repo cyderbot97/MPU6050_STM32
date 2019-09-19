@@ -75,8 +75,11 @@ int main(void)
 		Gy[1] = GyY/G_R;
 		Gy[2] = GyZ/G_R;
 
+
+
 		Acc[1] = atanf(-1*(AcX/A_R)/sqrtf(powf((AcY/A_R),2) + powf((AcZ/A_R),2)))*RAD_TO_DEG;
 		Acc[0] = atanf((AcY/A_R)/sqrtf(powf((AcX/A_R),2) + powf((AcZ/A_R),2)))*RAD_TO_DEG;
+
 
 		roll = 0.97 *(roll+Gy[0]*dt) + 0.03*Acc[0];
 		pitch = 0.97 *(pitch+Gy[1]*dt) + 0.03*Acc[1];
