@@ -68,9 +68,9 @@ int main(void)
 		gz = (rx_data[4]<<8 | rx_data[5]);
 
 
-		Gx = gx* 0.0002;
-		Gy = gy* 0.0002;
-		Gz = gz* 0.0002;
+		Gx = gx* 0.0007;
+		Gy = gy* 0.0007;
+		Gz = gz* 0.0007;
 
 		Ax = ax*0.000061f;
 		Ay = ay*0.000061f;
