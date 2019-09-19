@@ -24,7 +24,7 @@ int16_t AcX, AcY, AcZ, GyX, GyY, GyZ;
 
 float dt;
 
-float roll,pitch,yaw;
+float angle0, angle1, angle2;
 
 int main(void)
 {
@@ -53,7 +53,6 @@ int main(void)
 	BSP_I2C1_Write(0x68, 0x6b, tx_data, 1);
 	delay_ms(10);
 
-	dt = 4/1000;
 
 	while(1)
 	{
@@ -75,15 +74,19 @@ int main(void)
 		Gy[1] = GyY/G_R;
 		Gy[2] = GyZ/G_R;
 
+		dt = 4/1000;
 
+		Acc[1] = atan(-1*(AcX/A_R)/sqrt(pow((AcY/A_R),2) + pow((AcZ/A_R),2)))*RAD_TO_DEG;
+		Acc[0] = atan((AcY/A_R)/sqrt(pow((AcX/A_R),2) + pow((AcZ/A_R),2)))*RAD_TO_DEG;
 
-		Acc[1] = atanf(-1*(AcX/A_R)/sqrtf(powf((AcY/A_R),2) + powf((AcZ/A_R),2)))*RAD_TO_DEG;
-		Acc[0] = atanf((AcY/A_R)/sqrtf(powf((AcX/A_R),2) + powf((AcZ/A_R),2)))*RAD_TO_DEG;
+		Angle[0] = 0.98 *(Angle[0]+Gy[0]*dt) + 0.02*Acc[0];
+		Angle[1] = 0.98 *(Angle[1]+Gy[1]*dt) + 0.02*Acc[1];
 
+		Angle[2] = Angle[2]+Gy[2]*dt;
 
-		roll = 0.97 *(roll+Gy[0]*dt) + 0.03*Acc[0];
-		pitch = 0.97 *(pitch+Gy[1]*dt) + 0.03*Acc[1];
-		yaw = yaw + Gy[2]*4/1000;
+		angle0 = Angle[0];
+		angle1 = Angle[1];
+		angle2 = angle2 + Gy[2]*4/1000;
 
 		delay_ms(4);
 

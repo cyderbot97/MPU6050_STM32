@@ -81,8 +81,8 @@ int main(void)
 		Acc[0] = atanf((AcY/A_R)/sqrtf(powf((AcX/A_R),2) + powf((AcZ/A_R),2)))*RAD_TO_DEG;
 
 
-		roll = 0.97 *(roll+Gy[0]*dt) + 0.03*Acc[0];
-		pitch = 0.97 *(pitch+Gy[1]*dt) + 0.03*Acc[1];
+		roll = 0.98 *(roll+Gy[0]*dt) + 0.02*Acc[0];
+		pitch = 0.9 *(pitch+Gy[1]*dt) + 0.1*Acc[1];
 		yaw = yaw + Gy[2]*4/1000;
 
 		delay_ms(4);

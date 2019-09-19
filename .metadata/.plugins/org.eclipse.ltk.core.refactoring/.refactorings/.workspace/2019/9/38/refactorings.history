@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;nucleo-32_F303/app/src/MahonyAHRS.c&apos;" deleteContents="false" description="Delete resource &apos;nucleo-32_F303/app/src/MahonyAHRS.c&apos;" element1="/nucleo-32_F303/app/src/MahonyAHRS.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1568886481986"/>&#x0A;<refactoring comment="Delete resource &apos;nucleo-32_F303/app/inc/MahonyAHRS.h&apos;" deleteContents="false" description="Delete resource &apos;nucleo-32_F303/app/inc/MahonyAHRS.h&apos;" element1="/nucleo-32_F303/app/inc/MahonyAHRS.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1568886500903"/>
+</session>
