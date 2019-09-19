@@ -8,7 +8,7 @@
 #ifndef BSP_INC_BSP_H_
 #define BSP_INC_BSP_H_
 
-#include "main.h"
+#include "stm32f3xx.h"
 
 /*
  * LED driver functions

@@ -5,6 +5,7 @@
  *      Author: Laurent
  */
 
+#include "stm32f3xx.h"
 #include "bsp.h"
 
 

@@ -1,6 +1,10 @@
 #include "stm32f3xx.h"
 #include "main.h"
-
+#include "bsp.h"
+#include "delay.h"
+#include "math.h"
+#include "i2c.h"
+#include "mpu6050.h"
 
 
 
@@ -45,19 +49,18 @@ int main(void)
 	while(1)
 	{
 
-		//read accel data
 		BSP_I2C1_Read(0x68,0x3B,rx_data,6);
 
 		AcX = (rx_data[0]<<8 | rx_data[1]);
 		AcY = (rx_data[2]<<8 | rx_data[3]);
 		AcZ = (rx_data[4]<<8 | rx_data[5]);
 
-		//read gyro data
 		BSP_I2C1_Read(0x68,0x43,rx_data,6);
 
 		GyX = (rx_data[0]<<8 | rx_data[1]);
 		GyY = (rx_data[2]<<8 | rx_data[3]);
 		GyZ = (rx_data[4]<<8 | rx_data[5]);
+
 
 		Gy[0] = GyX/G_R;
 		Gy[1] = GyY/G_R;
@@ -66,7 +69,6 @@ int main(void)
 		Acc[1] = atanf(-1*(AcX/A_R)/sqrtf(powf((AcY/A_R),2) + powf((AcZ/A_R),2)))*RAD_TO_DEG;
 		Acc[0] = atanf((AcY/A_R)/sqrtf(powf((AcX/A_R),2) + powf((AcZ/A_R),2)))*RAD_TO_DEG;
 
-		//final data
 		roll = 0.97 *(roll+Gy[0]*dt) + 0.03*Acc[0];
 		pitch = 0.97 *(pitch+Gy[1]*dt) + 0.03*Acc[1];
 		yaw = yaw + Gy[2]*4/1000;
