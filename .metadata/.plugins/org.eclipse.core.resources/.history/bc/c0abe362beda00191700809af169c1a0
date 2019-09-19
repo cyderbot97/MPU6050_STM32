@@ -10,7 +10,7 @@
 #define G_R 131.0 // 32768/250*/
 
 #define A_R 4721.0 // 32768/2
-#define G_R 75.0
+#define G_R 65.0
 
 #define RAD_TO_DEG 57.2
 

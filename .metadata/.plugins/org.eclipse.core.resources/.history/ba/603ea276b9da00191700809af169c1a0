@@ -5,14 +5,10 @@
 #include "math.h"
 #include "i2c.h"
 
-/*
+
 #define A_R 16384.0 // 32768/2
-#define G_R 131.0 // 32768/250*/
-
-#define A_R 4721.0 // 32768/2
-#define G_R 75.0
-
-#define RAD_TO_DEG 57.2
+#define G_R 131.0 // 32768/250
+#define RAD_TO_DEG 57.295779
 
 
 static uint8_t SystemClock_Config(void);
@@ -44,13 +40,11 @@ int main(void)
 
 	my_printf("\r\n Robot Ready!\r\n");
 
-	tx_data[1] = 0x00;
+	tx_data[1] = 0x00; tx_data[0] = 0x00;
 
-
-	tx_data[0] = 0x08;
 	BSP_I2C1_Write(0x68, 0x1b, tx_data, 1);
 	delay_ms(10);
-	tx_data[0] = 0x10;
+
 	BSP_I2C1_Write(0x68, 0x1C, tx_data, 1);
 	delay_ms(10);
 
@@ -80,7 +74,7 @@ int main(void)
 		Gy[1] = GyY/G_R;
 		Gy[2] = GyZ/G_R;
 
-		dt = 4/1000;
+		dt = 4;
 
 		Acc[1] = atan(-1*(AcX/A_R)/sqrt(pow((AcY/A_R),2) + pow((AcZ/A_R),2)))*RAD_TO_DEG;
 		Acc[0] = atan((AcY/A_R)/sqrt(pow((AcX/A_R),2) + pow((AcZ/A_R),2)))*RAD_TO_DEG;
@@ -91,7 +85,6 @@ int main(void)
 
 		angle0 = Angle[0];
 		angle1 = Angle[1];
-		angle2 = angle2-Gy[2]*4/1000;
 
 		delay_ms(4);
 
