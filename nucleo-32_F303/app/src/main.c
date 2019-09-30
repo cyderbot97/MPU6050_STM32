@@ -1,23 +1,29 @@
 #include "stm32f3xx.h"
 #include "main.h"
+#include "bsp.h"
+#include "delay.h"
+#include "math.h"
+#include "i2c.h"
+#include "MadgwickAHRS.h"
 
 
-
+/*
+#define A_R 16384.0 // 32768/2
+#define G_R 131.0 // 32768/250*/
 
 #define A_R 16384.0 // 32768/2
 #define G_R 131.0 // 32768/250
 #define RAD_TO_DEG 57.2
 
 static uint8_t SystemClock_Config(void);
+//float angle = 0;
 
 
-float Acc[2];
-float Gy[3];
-float Angle[3];
 
-int16_t AcX, AcY, AcZ, GyX, GyY, GyZ;
+int16_t ax, ay, az, gx, gy, gz;
+float Ax, Ay, Az, Gx, Gy, Gz;
+float yaw, pitch, roll;
 
-float dt;
 
 float roll,pitch,yaw;
 
@@ -27,52 +33,65 @@ int main(void)
 	uint8_t		tx_data[2];
 	uint8_t		rx_data[6];
 
-
 	SystemClock_Config();
 
-
-	BSP_LED_Init();
 	BSP_I2C1_Init();
+	BSP_LED_Init();
 	BSP_Console_Init();
-	BSP_MPU6050_init();
 
 	my_printf("\r\n Robot Ready!\r\n");
 
 	tx_data[1] = 0x00; tx_data[0] = 0x00;
 
-	dt = 4/1000;
+	BSP_I2C1_Write(0x68, 0x1b, tx_data, 1);
+	delay_ms(10);
+
+	BSP_I2C1_Write(0x68, 0x1C, tx_data, 1);
+	delay_ms(10);
+
+	BSP_I2C1_Write(0x68, 0x6b, tx_data, 1);
+	delay_ms(10);
+
 
 	while(1)
 	{
-
 		//read accel data
 		BSP_I2C1_Read(0x68,0x3B,rx_data,6);
 
-		AcX = (rx_data[0]<<8 | rx_data[1]);
-		AcY = (rx_data[2]<<8 | rx_data[3]);
-		AcZ = (rx_data[4]<<8 | rx_data[5]);
+		ax = (rx_data[0]<<8 | rx_data[1]);
+		ay = (rx_data[2]<<8 | rx_data[3]);
+		az = (rx_data[4]<<8 | rx_data[5]);
 
-		//read gyro data
 		BSP_I2C1_Read(0x68,0x43,rx_data,6);
 
-		GyX = (rx_data[0]<<8 | rx_data[1]);
-		GyY = (rx_data[2]<<8 | rx_data[3]);
-		GyZ = (rx_data[4]<<8 | rx_data[5]);
+		gx = (rx_data[0]<<8 | rx_data[1])+1130;
+		gy = (rx_data[2]<<8 | rx_data[3]);
+		gz = (rx_data[4]<<8 | rx_data[5]);
 
-		Gy[0] = GyX/G_R;
-		Gy[1] = GyY/G_R;
-		Gy[2] = GyZ/G_R;
 
-		Acc[1] = atanf(-1*(AcX/A_R)/sqrtf(powf((AcY/A_R),2) + powf((AcZ/A_R),2)))*RAD_TO_DEG;
-		Acc[0] = atanf((AcY/A_R)/sqrtf(powf((AcX/A_R),2) + powf((AcZ/A_R),2)))*RAD_TO_DEG;
+		Gx = gx * 0.00026646248;//0.00013323124;
+		Gy = gy * 0.00026646248;
+		Gz = gz * 0.00026646248;
 
-		//final data
-		roll = 0.97 *(roll+Gy[0]*dt) + 0.03*Acc[0];
-		pitch = 0.97 *(pitch+Gy[1]*dt) + 0.03*Acc[1];
-		yaw = yaw + Gy[2]*4/1000;
+		Ax = ax * 0.000061035156f;
+		Ay = ay * 0.000061035156f;
+		Az = az * 0.000061035156f;
+
+		MadgwickAHRSupdateIMU(Gx, Gy, Gz, Ax, Ay, Az);
+
+		/*
+		roll = atan2f(q0*q1 + q2*q3, 0.5f - q1*q1 - q2*q2)*180/3.14;
+		pitch = asinf(-2.0f * (q1*q3 - q0*q2))*180/3.14;
+		yaw = atan2f(q1*q2 + q0*q3, 0.5f - q2*q2 - q3*q3)*180/3.14;
+*/
+		pitch = atan2f(2.0f * (q0*q1 + q2*q3), q0*q0 - q1*q1 - q2*q2 + q3*q3)*180/3.14;
+		roll  = asinf(2.0f * (q1*q3 - q0*q2))*180/3.14;
+		yaw   = atan2f(2.0f * (q1*q2 + q0*q3), q0*q0 + q1*q1 - q2*q2 - q3*q3)*180/3.14;
+
+
 
 		delay_ms(4);
-
+		BSP_LED_Toggle();
 
 	}
 }

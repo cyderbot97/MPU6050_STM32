@@ -380,3 +380,663 @@ Binding(ALT+CTRL+T,
 !MESSAGE Connection is shut down
 !SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-19 14:46:47.749
 !MESSAGE Connection is shut down
+!SESSION 2019-09-20 08:28:51.478 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-20 08:28:55.288
+!MESSAGE Loading product manager
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-20 08:28:55.295
+!MESSAGE OS info: Windows 10, 10.0, x86
+
+!ENTRY org.eclipse.core.resources 2 10035 2019-09-20 08:28:55.413
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY TrueSTUDIO 1 0 2019-09-20 08:28:56.157
+!MESSAGE Target: STM32, Version: 9.3.0, Build date: 20190212-0734, Installation dir: /C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.3.0/ide/
+
+!ENTRY TrueSTUDIO 1 0 2019-09-20 08:28:56.158
+!MESSAGE Workspace: C:\Users\cyril\Documents\GitHub\MPU6050_STM32
+
+!ENTRY org.eclipse.jface 2 0 2019-09-20 08:28:57.056
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-09-20 08:28:57.056
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1ee2423,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3d1d25,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.atollic.truestudio.integration.processorexpert 0 0 2019-09-20 08:29:03.697
+!MESSAGE Atollic TrueSTUDIO Processor Expert integration is up.
+
+!ENTRY edu.hawaii.ics.csdl.jupiter 1 0 2019-09-20 08:29:03.721
+!MESSAGE Code Review is up.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 09:35:38.831
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@6e8e88): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 09:35:38.831
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 09:35:38.831
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 09:50:32.763
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@16bd61e): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 09:50:32.763
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 09:50:32.763
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 09:53:20.716
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@1dba06c): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 09:53:20.716
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 09:53:20.716
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 09:58:23.803
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@dfa5d9): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 09:58:23.803
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 09:58:23.803
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 10:04:04.383
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@1e63869): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:04:04.383
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:04:04.383
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 10:05:03.575
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@14eedf9): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:05:03.575
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:05:03.575
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 10:05:34.632
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@16e550a): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:05:34.632
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:05:34.632
+!MESSAGE Connection is shut down
+
+!ENTRY TrueSTUDIO 4 0 2019-09-20 10:06:41.908
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-20 10:06:41.946
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2019-09-20 10:08:05.238
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-20 10:08:05.276
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 10:15:09.988
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@1828f0f): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:15:09.988
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:15:09.988
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 10:16:43.702
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@d94930): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:16:43.702
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:16:43.702
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 10:20:37.088
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@f8df13): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:20:37.088
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:20:37.088
+!MESSAGE Connection is shut down
+
+!ENTRY TrueSTUDIO 4 0 2019-09-20 10:29:52.791
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-20 10:29:52.826
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 10:33:48.729
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@149df8d): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:33:48.729
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:33:48.729
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 10:40:33.845
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@104772e): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:40:33.845
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:40:33.845
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 10:40:53.074
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@74287): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:40:53.074
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:40:53.074
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 10:43:39.124
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@ac9b77): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:43:39.124
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:43:39.124
+!MESSAGE Connection is shut down
+
+!ENTRY com.atollic.truestudio.debug 4 0 2019-09-20 10:45:29.846
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 31 (contextManager row 121)
+
+!ENTRY com.atollic.truestudio.debug 4 0 2019-09-20 10:45:29.846
+!MESSAGE Existing sessions are:
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-09-20 10:46:53.762
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@108b69f): Status ERROR: org.eclipse.cdt.dsf code=10001 Sequence "" failed while rolling back. null children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:46:53.762
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2019-09-20 10:46:53.762
+!MESSAGE Connection is shut down
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-20 15:53:42.567
+!MESSAGE Unloading product manager
+!SESSION 2019-09-25 18:24:10.549 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-25 18:24:38.857
+!MESSAGE Loading product manager
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-25 18:24:39.563
+!MESSAGE OS info: Windows 10, 10.0, x86
+
+!ENTRY TrueSTUDIO 1 0 2019-09-25 18:24:55.872
+!MESSAGE Target: STM32, Version: 9.3.0, Build date: 20190212-0734, Installation dir: /C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.3.0/ide/
+
+!ENTRY TrueSTUDIO 1 0 2019-09-25 18:24:55.872
+!MESSAGE Workspace: C:\Users\cyril\Documents\GitHub\MPU6050_STM32
+
+!ENTRY org.eclipse.jface 2 0 2019-09-25 18:25:19.144
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-09-25 18:25:19.144
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4de63b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2d0e41,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.atollic.truestudio.integration.processorexpert 0 0 2019-09-25 18:25:47.223
+!MESSAGE Atollic TrueSTUDIO Processor Expert integration is up.
+
+!ENTRY edu.hawaii.ics.csdl.jupiter 1 0 2019-09-25 18:25:49.148
+!MESSAGE Code Review is up.
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-25 18:32:58.276
+!MESSAGE Unloading product manager
+!SESSION 2019-09-26 12:28:35.571 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-26 12:28:52.336
+!MESSAGE Loading product manager
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-26 12:28:53.169
+!MESSAGE OS info: Windows 10, 10.0, x86
+
+!ENTRY TrueSTUDIO 1 0 2019-09-26 12:29:06.843
+!MESSAGE Target: STM32, Version: 9.3.0, Build date: 20190212-0734, Installation dir: /C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.3.0/ide/
+
+!ENTRY TrueSTUDIO 1 0 2019-09-26 12:29:06.859
+!MESSAGE Workspace: C:\Users\cyril\Documents\GitHub\MPU6050_STM32
+
+!ENTRY org.eclipse.jface 2 0 2019-09-26 12:29:31.189
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-09-26 12:29:31.189
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1a9e665,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2be0cd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.atollic.truestudio.integration.processorexpert 0 0 2019-09-26 12:30:01.172
+!MESSAGE Atollic TrueSTUDIO Processor Expert integration is up.
+
+!ENTRY edu.hawaii.ics.csdl.jupiter 1 0 2019-09-26 12:30:03.305
+!MESSAGE Code Review is up.
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-26 12:30:15.355
+!MESSAGE Unloading product manager
+!SESSION 2019-09-27 20:50:33.850 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data C:\Users\cyril\Documents\GitHub\MPU6050_STM32
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-27 20:50:39.533
+!MESSAGE Loading product manager
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-27 20:50:39.861
+!MESSAGE OS info: Windows 10, 10.0, x86
+
+!ENTRY TrueSTUDIO 1 0 2019-09-27 20:50:44.500
+!MESSAGE Target: STM32, Version: 9.3.0, Build date: 20190212-0734, Installation dir: /C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.3.0/ide/
+
+!ENTRY TrueSTUDIO 1 0 2019-09-27 20:50:44.500
+!MESSAGE Workspace: C:\Users\cyril\Documents\GitHub\MPU6050_STM32
+
+!ENTRY org.eclipse.jface 2 0 2019-09-27 20:50:53.841
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-09-27 20:50:53.841
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1a646b8,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@65e237,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.atollic.truestudio.integration.processorexpert 0 0 2019-09-27 20:51:06.633
+!MESSAGE Atollic TrueSTUDIO Processor Expert integration is up.
+
+!ENTRY edu.hawaii.ics.csdl.jupiter 1 0 2019-09-27 20:51:07.555
+!MESSAGE Code Review is up.
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-27 21:22:06.530
+!MESSAGE Unloading product manager
+!SESSION 2019-09-29 08:31:21.157 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-29 08:31:42.875
+!MESSAGE Loading product manager
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-29 08:31:43.633
+!MESSAGE OS info: Windows 10, 10.0, x86
+
+!ENTRY TrueSTUDIO 1 0 2019-09-29 08:31:56.455
+!MESSAGE Target: STM32, Version: 9.3.0, Build date: 20190212-0734, Installation dir: /C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.3.0/ide/
+
+!ENTRY TrueSTUDIO 1 0 2019-09-29 08:31:56.460
+!MESSAGE Workspace: C:\Users\cyril\Documents\GitHub\MPU6050_STM32
+
+!ENTRY org.eclipse.jface 2 0 2019-09-29 08:32:18.994
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-09-29 08:32:18.994
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@17d5a87,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@11d977f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.atollic.truestudio.integration.processorexpert 0 0 2019-09-29 08:32:44.121
+!MESSAGE Atollic TrueSTUDIO Processor Expert integration is up.
+
+!ENTRY edu.hawaii.ics.csdl.jupiter 1 0 2019-09-29 08:32:45.681
+!MESSAGE Code Review is up.
+
+!ENTRY com.atollic.truestudio.debug 4 0 2019-09-29 09:00:14.615
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 3 (contextManager row 121)
+
+!ENTRY com.atollic.truestudio.debug 4 0 2019-09-29 09:00:14.615
+!MESSAGE Existing sessions are:
+
+!ENTRY TrueSTUDIO 4 0 2019-09-29 09:04:51.482
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-29 09:04:51.559
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2019-09-29 09:14:12.437
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-29 09:14:12.494
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2019-09-29 09:17:45.927
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-29 09:17:45.984
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2019-09-29 10:06:10.107
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-29 10:06:10.164
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-29 11:17:47.776
+!MESSAGE Unloading product manager
+!SESSION 2019-09-29 12:32:01.747 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data C:\Users\cyril\Documents\GitHub\MPU6050_STM32
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-29 12:32:03.965
+!MESSAGE Loading product manager
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-29 12:32:03.971
+!MESSAGE OS info: Windows 10, 10.0, x86
+
+!ENTRY TrueSTUDIO 1 0 2019-09-29 12:32:05.247
+!MESSAGE Target: STM32, Version: 9.3.0, Build date: 20190212-0734, Installation dir: /C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.3.0/ide/
+
+!ENTRY TrueSTUDIO 1 0 2019-09-29 12:32:05.247
+!MESSAGE Workspace: C:\Users\cyril\Documents\GitHub\MPU6050_STM32
+
+!ENTRY org.eclipse.jface 2 0 2019-09-29 12:32:06.947
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-09-29 12:32:06.947
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1459bda,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@eb11f9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.atollic.truestudio.integration.processorexpert 0 0 2019-09-29 12:32:14.511
+!MESSAGE Atollic TrueSTUDIO Processor Expert integration is up.
+
+!ENTRY edu.hawaii.ics.csdl.jupiter 1 0 2019-09-29 12:32:14.562
+!MESSAGE Code Review is up.
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-29 13:19:40.261
+!MESSAGE Unloading product manager
+!SESSION 2019-09-30 13:49:17.401 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-30 13:49:39.104
+!MESSAGE Loading product manager
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-30 13:49:39.916
+!MESSAGE OS info: Windows 10, 10.0, x86
+
+!ENTRY TrueSTUDIO 1 0 2019-09-30 13:49:53.969
+!MESSAGE Target: STM32, Version: 9.3.0, Build date: 20190212-0734, Installation dir: /C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.3.0/ide/
+
+!ENTRY TrueSTUDIO 1 0 2019-09-30 13:49:53.969
+!MESSAGE Workspace: C:\Users\cyril\Documents\GitHub\MPU6050_STM32
+
+!ENTRY org.eclipse.jface 2 0 2019-09-30 13:50:16.690
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-09-30 13:50:16.690
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@8fe8ad,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1d6262c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.atollic.truestudio.integration.processorexpert 0 0 2019-09-30 13:52:42.269
+!MESSAGE Atollic TrueSTUDIO Processor Expert integration is up.
+
+!ENTRY edu.hawaii.ics.csdl.jupiter 1 0 2019-09-30 13:52:43.113
+!MESSAGE Code Review is up.
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-30 13:59:30.410
+!MESSAGE Unloading product manager
+!SESSION 2019-09-30 18:11:35.746 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data C:\Users\cyril\Documents\GitHub\MPU6050_STM32
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-30 18:11:37.804
+!MESSAGE Loading product manager
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-30 18:11:37.813
+!MESSAGE OS info: Windows 10, 10.0, x86
+
+!ENTRY TrueSTUDIO 1 0 2019-09-30 18:11:39.421
+!MESSAGE Target: STM32, Version: 9.3.0, Build date: 20190212-0734, Installation dir: /C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.3.0/ide/
+
+!ENTRY TrueSTUDIO 1 0 2019-09-30 18:11:39.421
+!MESSAGE Workspace: C:\Users\cyril\Documents\GitHub\MPU6050_STM32
+
+!ENTRY org.eclipse.jface 2 0 2019-09-30 18:11:41.822
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-09-30 18:11:41.822
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@165aa58,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@9f61a3,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.atollic.truestudio.integration.processorexpert 0 0 2019-09-30 18:11:49.524
+!MESSAGE Atollic TrueSTUDIO Processor Expert integration is up.
+
+!ENTRY edu.hawaii.ics.csdl.jupiter 1 0 2019-09-30 18:11:49.563
+!MESSAGE Code Review is up.
+
+!ENTRY TrueSTUDIO 4 0 2019-09-30 18:24:29.183
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-30 18:24:29.332
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2019-09-30 18:26:49.030
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-30 18:26:49.143
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2019-09-30 18:50:34.533
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-30 18:50:34.649
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY com.atollic.truestudio.debug 4 0 2019-09-30 18:50:56.708
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 10 (contextManager row 121)
+
+!ENTRY com.atollic.truestudio.debug 4 0 2019-09-30 18:50:56.710
+!MESSAGE Existing sessions are:
+
+!ENTRY TrueSTUDIO 4 0 2019-09-30 18:55:09.980
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-30 18:55:10.075
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2019-09-30 19:04:20.294
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-30 19:04:20.387
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2019-09-30 19:05:58.832
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-30 19:05:58.920
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2019-09-30 19:25:34.900
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-30 19:25:34.963
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY TrueSTUDIO 4 0 2019-09-30 19:26:49.646
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-09-30 19:26:49.775
+!MESSAGE Error in initializing ST-Link device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-30 22:04:43.951
+!MESSAGE Unloading product manager
+!SESSION 2019-09-30 22:19:01.255 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data C:\Users\cyril\Documents\GitHub\MPU6050_STM32
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-30 22:19:03.275
+!MESSAGE Loading product manager
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2019-09-30 22:19:03.290
+!MESSAGE OS info: Windows 10, 10.0, x86
+
+!ENTRY TrueSTUDIO 1 0 2019-09-30 22:19:04.594
+!MESSAGE Target: STM32, Version: 9.3.0, Build date: 20190212-0734, Installation dir: /C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.3.0/ide/
+
+!ENTRY TrueSTUDIO 1 0 2019-09-30 22:19:04.594
+!MESSAGE Workspace: C:\Users\cyril\Documents\GitHub\MPU6050_STM32
+
+!ENTRY org.eclipse.jface 2 0 2019-09-30 22:19:06.455
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-09-30 22:19:06.455
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@eb11f9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1664323,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.atollic.truestudio.integration.processorexpert 0 0 2019-09-30 22:19:13.000
+!MESSAGE Atollic TrueSTUDIO Processor Expert integration is up.
+
+!ENTRY edu.hawaii.ics.csdl.jupiter 1 0 2019-09-30 22:19:13.039
+!MESSAGE Code Review is up.
