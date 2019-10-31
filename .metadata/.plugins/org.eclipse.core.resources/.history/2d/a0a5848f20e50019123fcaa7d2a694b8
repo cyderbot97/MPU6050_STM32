@@ -1,0 +1,138 @@
+/*
+ * mpu6050.c
+ *
+ *  Created on: 19 sept. 2019
+ *      Author: cyril
+ */
+#include "mpu6050.h"
+#include "mpu9250.h"
+
+
+void BSP_MPU6050_init(void){
+
+	uint8_t tx_data[1];
+
+	tx_data[0] = 0x00;
+	BSP_I2C1_Write(adress, 0x6b, tx_data, 1);
+	delay_ms(10);
+
+	tx_data[0] = 0x08;
+
+	BSP_I2C1_Write(adress, 0x1b, tx_data, 1); // set gyro = 500°/s
+	delay_ms(10);
+
+	tx_data[0] = 0x00;
+
+	BSP_I2C1_Write(adress, 0x1C, tx_data, 1); // set accel = 2g
+	delay_ms(10);
+/*
+	tx_data[0] = 0x05;
+	BSP_I2C1_Write(adress, 0x1A, tx_data, 1); // set low pass filter to 10hz
+	delay_ms(10);
+*/
+
+}
+
+void BSP_MPU9250_Init()
+{
+	uint8_t tx_data[1];
+
+	// MPU9250 Basic init
+	tx_data[0] = BIT_H_RESET;
+	BSP_I2C1_Write(adress, MPUREG_PWR_MGMT_1, tx_data, 1);			// Reset Device
+	delay_ms(1);
+
+	tx_data[0] = BIT_CLKSEL_AUTO;
+	BSP_I2C1_Write(adress, MPUREG_PWR_MGMT_1, tx_data, 1);		// Auto-select clock source
+	delay_ms(1);
+
+	tx_data[0] =  BITS_ALL_ON;
+	BSP_I2C1_Write(adress, MPUREG_PWR_MGMT_2, tx_data, 1);			// Enable all Acc & Gyro sensors
+	delay_ms(1);
+
+	// Setup Low-pass filters for Gyros and Temperature sensor
+	tx_data[0] = BITS_DLPF_CFG_3;
+	BSP_I2C1_Write(adress, MPUREG_CONFIG,  tx_data, 1);			// DLPF_CFG is set to 0 (41Hz Gyros, 42Hz Temp)
+	delay_ms(1);
+
+	// Setup Full Scales & filters
+	tx_data[0] = BITS_FS_500DPS;
+	BSP_I2C1_Write(adress, MPUREG_GYRO_CONFIG,  tx_data, 1);		// Set Gyro to +-500dps and use DLPF as above
+	delay_ms(1);
+
+	tx_data[0] = BITS_FS_2G;
+	BSP_I2C1_Write(adress, MPUREG_ACCEL_CONFIG,  tx_data, 1);			// Set Accl to +-2G
+	delay_ms(1);
+
+	tx_data[0] = BITS_DLPF_CFG_3;
+	BSP_I2C1_Write(adress, MPUREG_ACCEL_CONFIG_2,  tx_data, 1);	// Set Accl datarate to 1kHz, enable LPF, BW 41Hz
+	delay_ms(1);
+
+	// Setup Interrupts
+	tx_data[0] = 9;
+	BSP_I2C1_Write(adress, MPUREG_SMPLRT_DIV,  tx_data, 1);						// Sample rate is 100Hz (10ms)
+	delay_ms(1);
+
+	tx_data[0] = BIT_INT_RAW_RDY_EN;
+	BSP_I2C1_Write(adress, MPUREG_INT_ENABLE,  tx_data, 1);	// Setup interrupt when raw data is ready
+	delay_ms(1);
+
+
+	// Setup for Magnetometer
+	tx_data[0] = 0x02;
+	BSP_I2C1_Write(adress, MPUREG_USER_CTRL,  tx_data, 1);					// I2C Master Reset
+	delay_ms(1);
+
+	tx_data[0] = 0x20;
+	BSP_I2C1_Write(adress, MPUREG_USER_CTRL,  tx_data, 1);					// I2C Master Mode Enable
+	delay_ms(1);
+
+	tx_data[0] = 0x0D;
+	BSP_I2C1_Write(adress, MPUREG_I2C_MST_CTRL,  tx_data, 1);				// I2C Master at 400KHz
+	delay_ms(1);
+
+	tx_data[0] = AK8963_I2C_ADDR;
+	BSP_I2C1_Write(adress, MPUREG_I2C_SLV0_ADDR,  tx_data, 1);	// Set Slave0 address to AK8963 adress
+	delay_ms(1);
+
+	tx_data[0] = AK8963_CNTL2;
+	BSP_I2C1_Write(adress, MPUREG_I2C_SLV0_REG,  tx_data, 1);		// I2C slave 0 register address from where to begin data transfer
+	delay_ms(1);
+
+	tx_data[0] = 0x01;
+	BSP_I2C1_Write(adress, MPUREG_I2C_SLV0_DO,  tx_data, 1);					// Reset AK8963
+	delay_ms(1);
+
+	tx_data[0] = 0x81;
+	BSP_I2C1_Write(adress, MPUREG_I2C_SLV0_CTRL,  tx_data, 1);				// Enable I2C and set 1 byte
+	delay_ms(1);
+
+	tx_data[0] = AK8963_CNTL1;
+	BSP_I2C1_Write(adress, MPUREG_I2C_SLV0_REG,  tx_data, 1);		// I2C slave 0 register address from where to begin data transfer
+	delay_ms(1);
+
+	tx_data[0] = 0x12;
+	BSP_I2C1_Write(adress, MPUREG_I2C_SLV0_DO,  tx_data, 1);					// Register value to continuous measurement in 16bit
+	delay_ms(1);
+
+	tx_data[0] = 0x81;
+	BSP_I2C1_Write(adress, MPUREG_I2C_SLV0_CTRL,  tx_data, 1);				// Enable I2C and set 1 byte
+	delay_ms(1);
+
+
+
+	// Continuously read 7 bytes from Magnetometers
+
+	tx_data[0] = AK8963_I2C_ADDR|READ_FLAG;
+	BSP_I2C1_Write(adress, MPUREG_I2C_SLV0_ADDR,  tx_data, 1);
+	delay_ms(1);
+
+	tx_data[0] = AK8963_HXL;
+	BSP_I2C1_Write(adress, MPUREG_I2C_SLV0_REG,  tx_data, 1 );
+	delay_ms(1);
+
+	tx_data[0] = 0x87;
+	BSP_I2C1_Write(adress, MPUREG_I2C_SLV0_CTRL,  tx_data, 1 );
+	delay_ms(1);
+}
+

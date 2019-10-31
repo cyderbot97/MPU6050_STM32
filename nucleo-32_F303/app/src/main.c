@@ -5,6 +5,7 @@
 #include "math.h"
 #include "i2c.h"
 #include "MadgwickAHRS.h"
+#include "mpu9250.h"
 
 
 /*
@@ -20,76 +21,120 @@ static uint8_t SystemClock_Config(void);
 
 
 
-int16_t ax, ay, az, gx, gy, gz;
-float Ax, Ay, Az, Gx, Gy, Gz;
+int16_t ax, ay, az, gx, gy, gz,mx,my,mz;
+float Ax, Ay, Az, Gx, Gy, Gz,Mx,My,Mz;
 float yaw, pitch, roll;
 
 
 float roll,pitch,yaw;
-
+z
 int main(void)
 {
 
 	uint8_t		tx_data[2];
-	uint8_t		rx_data[6];
+	uint8_t		rx_data[14];
 
 	SystemClock_Config();
 
 	BSP_I2C1_Init();
 	BSP_LED_Init();
 	BSP_Console_Init();
+	BSP_MPU9250_Init();
 
 	my_printf("\r\n Robot Ready!\r\n");
 
-	tx_data[1] = 0x00; tx_data[0] = 0x00;
 
-	BSP_I2C1_Write(0x68, 0x1b, tx_data, 1);
-	delay_ms(10);
-
-	BSP_I2C1_Write(0x68, 0x1C, tx_data, 1);
-	delay_ms(10);
-
-	BSP_I2C1_Write(0x68, 0x6b, tx_data, 1);
-	delay_ms(10);
 
 
 	while(1)
 	{
 		//read accel data
-		BSP_I2C1_Read(0x68,0x3B,rx_data,6);
-
-		ax = (rx_data[0]<<8 | rx_data[1]);
-		ay = (rx_data[2]<<8 | rx_data[3]);
-		az = (rx_data[4]<<8 | rx_data[5]);
-
-		BSP_I2C1_Read(0x68,0x43,rx_data,6);
-
-		gx = (rx_data[0]<<8 | rx_data[1])+1130;
-		gy = (rx_data[2]<<8 | rx_data[3]);
-		gz = (rx_data[4]<<8 | rx_data[5]);
 
 
-		Gx = gx * 0.00026646248;//0.00013323124;
-		Gy = gy * 0.00026646248;
-		Gz = gz * 0.00026646248;
+		BSP_I2C1_Read(adress,MPUREG_ACCEL_XOUT_H,rx_data,14);
+
+
+    	ax = ((int16_t)rx_data[0]<<8) | (int16_t)rx_data[1];
+    	ay = ((int16_t)rx_data[2]<<8) | (int16_t)rx_data[3];
+    	az = ((int16_t)rx_data[4]<<8) | (int16_t)rx_data[5];
+
+    	// Scale Accelerometers with offset cancellation
+    	Ax = ax * MPU9250A_2g;
+    	Ay = ay * MPU9250A_2g;
+    	Az = az * MPU9250A_2g;
+
+
+    	gx = ((int16_t)rx_data[8]<<8)  | (int16_t)rx_data[9];
+    	gy = ((int16_t)rx_data[10]<<8) | (int16_t)rx_data[11];
+    	gz = ((int16_t)rx_data[12]<<8) | (int16_t)rx_data[13];
+
+    	// Scale Gyros with offset cancellation
+    	Gx = gx * MPU9250G_500dps;
+    	Gy = gy * MPU9250G_500dps;
+    	Gz = gz * MPU9250G_500dps;
+
+    	BSP_I2C1_Read(adress,MPUREG_EXT_SENS_DATA_00,rx_data,6);
+
+    	mx =  ((int16_t)rx_data[1]<<8) | (int16_t)rx_data[0];
+		my =  ((int16_t)rx_data[3]<<8) | (int16_t)rx_data[2];
+		mz =  ((int16_t)rx_data[5]<<8) | (int16_t)rx_data[4];
+
+		Mx = mx;// * MPU9250M_4800uT;
+		My = mx;// * MPU9250M_4800uT;
+		Mz = mx;// * MPU9250M_4800uT;
+
+		/*
+		BSP_I2C1_Read(adress,MPUREG_ACCEL_XOUT_H,rx_data,6);
+
+		ax = (rx_data[0]<<8 )| rx_data[1];
+		ay = (rx_data[2]<<8 )| rx_data[3];
+		az = (rx_data[4]<<8 )| rx_data[5];
+
+		BSP_I2C1_Read(adress,0x43,rx_data,6);
+
+		gx = (rx_data[0]<<8 )| rx_data[1];
+		gy = (rx_data[2]<<8 )| rx_data[3];
+		gz = (rx_data[4]<<8 )| rx_data[5];
+
+		BSP_I2C1_Read(adress,MPUREG_EXT_SENS_DATA_00,rx_data,6);
+
+		mx =  (rx_data[1]<<8) | rx_data[0];
+    	my =  (rx_data[3]<<8) | rx_data[2];
+    	mz =  (rx_data[5]<<8) | rx_data[4];
+
+		// convert data
+
+		Gx = (gx - 125 - 121) * 0.00026646248;//0.00013323124;
+		Gy = (gy + 19 + 27) * 0.00026646248;
+		Gz = (gz + 28 + 80) * 0.00026646248;
 
 		Ax = ax * 0.000061035156f;
 		Ay = ay * 0.000061035156f;
 		Az = az * 0.000061035156f;
 
-		MadgwickAHRSupdateIMU(Gx, Gy, Gz, Ax, Ay, Az);
+		Mx = mx * MPU9250M_4800uT;
+		My = mx * MPU9250M_4800uT;
+		Mz = mx * MPU9250M_4800uT;
+*/
+		//MadgwickAHRSupdateIMU(Gx, Gy, Gz, Ax, Ay, Az);
+		MadgwickAHRSupdate(Gx, Gy, Gz, Ax, Ay, Az, Mx, My, -Mz);
+
 
 		/*
 		roll = atan2f(q0*q1 + q2*q3, 0.5f - q1*q1 - q2*q2)*180/3.14;
 		pitch = asinf(-2.0f * (q1*q3 - q0*q2))*180/3.14;
 		yaw = atan2f(q1*q2 + q0*q3, 0.5f - q2*q2 - q3*q3)*180/3.14;
 */
+
 		pitch = atan2f(2.0f * (q0*q1 + q2*q3), q0*q0 - q1*q1 - q2*q2 + q3*q3)*180/3.14;
 		roll  = asinf(2.0f * (q1*q3 - q0*q2))*180/3.14;
 		yaw   = atan2f(2.0f * (q1*q2 + q0*q3), q0*q0 + q1*q1 - q2*q2 - q3*q3)*180/3.14;
 
-
-
+		/*
+		yaw   = atan2(2.0f * (q1 * q2 + q0 * q3), q0 * q0 + q1 * q1 - q2 * q2 - q3 * q3)*180/3.14;
+		pitch = -asin(2.0f * (q1 * q3 - q0 * q2))*180/3.14;
+		roll  = atan2(2.0f * (q0 * q1 + q2 * q3), q0 * q0 - q1 * q1 - q2 * q2 + q3 * q3)*180/3.14;
+		*/
 		delay_ms(4);
 		BSP_LED_Toggle();
 

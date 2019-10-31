@@ -1,0 +1,325 @@
+#include "stm32f3xx.h"
+#include "main.h"
+#include "bsp.h"
+#include "delay.h"
+#include "math.h"
+#include "i2c.h"
+#include "MadgwickAHRS.h"
+#include "mpu9250.h"
+
+
+/*
+#define A_R 16384.0 // 32768/2
+#define G_R 131.0 // 32768/250*/
+
+#define A_R 16384.0 // 32768/2
+#define G_R 131.0 // 32768/250
+#define RAD_TO_DEG 57.2
+
+static uint8_t SystemClock_Config(void);
+//float angle = 0;
+
+
+
+int16_t ax, ay, az, gx, gy, gz,mx,my,mz;
+float Ax, Ay, Az, Gx, Gy, Gz,Mx,My,Mz;
+float yaw, pitch, roll;
+
+
+float roll,pitch,yaw;
+
+int main(void)
+{
+
+	uint8_t		tx_data[2];
+	uint8_t		rx_data[14];
+
+	SystemClock_Config();
+
+	BSP_I2C1_Init();
+	BSP_LED_Init();
+	BSP_Console_Init();
+	BSP_MPU9250_Init();
+
+	my_printf("\r\n Robot Ready!\r\n");
+
+
+
+
+	while(1)
+	{
+		//read accel data
+
+
+		BSP_I2C1_Read(adress,MPUREG_ACCEL_XOUT_H,rx_data,14);
+
+
+    	ax = ((int16_t)rx_data[0]<<8) | (int16_t)rx_data[1];
+    	ay = ((int16_t)rx_data[2]<<8) | (int16_t)rx_data[3];
+    	az = ((int16_t)rx_data[4]<<8) | (int16_t)rx_data[5];
+
+    	// Scale Accelerometers with offset cancellation
+    	Ax =  (ax + 180) * MPU9250A_2g;
+    	Ay =  (ay - 300) * MPU9250A_2g;
+    	Az = az * MPU9250A_2g;
+
+
+    	gx = ((int16_t)rx_data[8]<<8)  | (int16_t)rx_data[9];
+    	gy = ((int16_t)rx_data[10]<<8) | (int16_t)rx_data[11];
+    	gz = ((int16_t)rx_data[12]<<8) | (int16_t)rx_data[13];
+
+    	// Scale Gyros with offset cancellation
+    	Gx = -(gx) * MPU9250G_500dps;
+    	Gy = -(gy)   * MPU9250G_500dps;
+    	Gz =  (gz)  * MPU9250G_500dps;
+
+    	BSP_I2C1_Read(adress,MPUREG_EXT_SENS_DATA_00,rx_data,6);
+
+    	mx =  (rx_data[1]<<8) | rx_data[0];
+		my =  (rx_data[3]<<8) | rx_data[2];
+		mz =  (rx_data[5]<<8) | rx_data[4];
+
+		Mx = mx * MPU9250M_4800uT;
+		My = mx * MPU9250M_4800uT;
+		Mz = mx * MPU9250M_4800uT;
+
+		/*
+		BSP_I2C1_Read(adress,MPUREG_ACCEL_XOUT_H,rx_data,6);
+
+		ax = (rx_data[0]<<8 )| rx_data[1];
+		ay = (rx_data[2]<<8 )| rx_data[3];
+		az = (rx_data[4]<<8 )| rx_data[5];
+
+		BSP_I2C1_Read(adress,0x43,rx_data,6);
+
+		gx = (rx_data[0]<<8 )| rx_data[1];
+		gy = (rx_data[2]<<8 )| rx_data[3];
+		gz = (rx_data[4]<<8 )| rx_data[5];
+
+		BSP_I2C1_Read(adress,MPUREG_EXT_SENS_DATA_00,rx_data,6);
+
+		mx =  (rx_data[1]<<8) | rx_data[0];
+    	my =  (rx_data[3]<<8) | rx_data[2];
+    	mz =  (rx_data[5]<<8) | rx_data[4];
+
+		// convert data
+
+		Gx = (gx - 125 - 121) * 0.00026646248;//0.00013323124;
+		Gy = (gy + 19 + 27) * 0.00026646248;
+		Gz = (gz + 28 + 80) * 0.00026646248;
+
+		Ax = ax * 0.000061035156f;
+		Ay = ay * 0.000061035156f;
+		Az = az * 0.000061035156f;
+
+		Mx = mx * MPU9250M_4800uT;
+		My = mx * MPU9250M_4800uT;
+		Mz = mx * MPU9250M_4800uT;
+*/
+		//MadgwickAHRSupdateIMU(Gx, Gy, Gz, Ax, Ay, Az);
+		MadgwickAHRSupdate(Gx, Gy, Gz, Ax, Ay, Az, Mx, My, Mz);
+
+
+		/*
+		roll = atan2f(q0*q1 + q2*q3, 0.5f - q1*q1 - q2*q2)*180/3.14;
+		pitch = asinf(-2.0f * (q1*q3 - q0*q2))*180/3.14;
+		yaw = atan2f(q1*q2 + q0*q3, 0.5f - q2*q2 - q3*q3)*180/3.14;
+*/
+
+		pitch = atan2f(2.0f * (q0*q1 + q2*q3), q0*q0 - q1*q1 - q2*q2 + q3*q3)*180/3.14;
+		roll  = asinf(2.0f * (q1*q3 - q0*q2))*180/3.14;
+		yaw   = atan2f(2.0f * (q1*q2 + q0*q3), q0*q0 + q1*q1 - q2*q2 - q3*q3)*180/3.14;
+
+		/*
+		yaw   = atan2(2.0f * (q1 * q2 + q0 * q3), q0 * q0 + q1 * q1 - q2 * q2 - q3 * q3)*180/3.14;
+		pitch = -asin(2.0f * (q1 * q3 - q0 * q2))*180/3.14;
+		roll  = atan2(2.0f * (q0 * q1 + q2 * q3), q0 * q0 - q1 * q1 - q2 * q2 + q3 * q3)*180/3.14;
+		*/
+		delay_ms(4);
+		BSP_LED_Toggle();
+
+	}
+}
+
+
+/*
+ * 	Clock configuration for the Nucleo STM32F303K8 board
+ *
+ * 	Default solder bridges configuration is for HSI (HSE is not connected)
+ * 	You can change this by swapping solder bridges SB4 and SB6 (see Nucleo User manual)
+ *
+ * 	HSI clock configuration provides :
+ * 	- SYSCLK, AHB	-> 64MHz
+ * 	- APB2			-> 64MHz
+ * 	- APB1			-> 32MHz (periph) 64MHz (timers)
+ *
+ * 	HSE clock configuration from ST-Link 8MHz MCO provides :
+ * 	- SYSCLK, AHB	-> 72MHz
+ * 	- APB2			-> 72MHz
+ * 	- APB1			-> 36MHz (periph) 72MHz (timers)
+ *
+ * 	Select configuration by setting one of these symbol in your build configuration
+ * 	- USE_HSI
+ * 	- USE_HSE
+ *
+ */
+
+
+#ifdef USE_HSI
+
+static uint8_t SystemClock_Config()
+{
+	uint32_t	status;
+	uint32_t	timeout = 0;
+
+	// Start 8MHz HSI (it should be already started at power on)
+	RCC->CR |= RCC_CR_HSION;
+
+	// Wait until HSI is stable
+	timeout = 1000;
+
+	do
+	{
+		status = RCC->CR & RCC_CR_HSIRDY;
+		timeout--;
+	} while ((status == 0) && (timeout > 0));
+
+	if (timeout == 0) return (1);	// HSI error
+
+
+	// Configure Flash latency according to the speed (2WS)
+	FLASH->ACR &= ~FLASH_ACR_LATENCY;
+	FLASH->ACR |= 0x02 <<0;
+
+	// Set HSI as PLL input
+	RCC->CFGR |= RCC_CFGR_PLLSRC_HSI_DIV2;	// 4MHz from HSI
+
+	// Configure the main PLL
+	#define PLL_MUL		16					// 4MHz HSI to 64MHz
+	RCC->CFGR |= (PLL_MUL-2) <<18;
+
+	// Enable the main PLL
+	RCC-> CR |= RCC_CR_PLLON;
+
+	// Configure AHB/APB prescalers
+	// AHB  Prescaler = /1	-> 64 MHz
+	// APB1 Prescaler = /2  -> 32/64 MHz
+	// APB2 Prescaler = /1  -> 64 MHz
+	RCC->CFGR |= RCC_CFGR_HPRE_DIV1;
+	RCC->CFGR |= RCC_CFGR_PPRE2_DIV1;
+	RCC->CFGR |= RCC_CFGR_PPRE1_DIV2;
+
+	// Wait until PLL is ready
+	timeout = 1000;
+
+	do
+	{
+		status = RCC->CR & RCC_CR_PLLRDY;
+		timeout--;
+	} while ((status == 0) && (timeout > 0));
+
+	if (timeout == 0) return (2);	// PLL error
+
+
+	// Select the main PLL as system clock source
+	RCC->CFGR &= ~RCC_CFGR_SW;
+	RCC->CFGR |= RCC_CFGR_SW_PLL;
+
+	// Wait until PLL is switched on
+	timeout = 1000;
+
+	do
+	{
+		status = RCC->CFGR & RCC_CFGR_SWS;
+		timeout--;
+	} while ((status != RCC_CFGR_SWS_PLL) && (timeout > 0));
+
+	if (timeout == 0) return (3);	// SW error
+
+	// Update System core clock
+	SystemCoreClockUpdate();
+	return (0);
+}
+
+#endif
+
+
+#ifdef USE_HSE
+
+static uint8_t SystemClock_Config()
+{
+	uint32_t	status;
+	uint32_t	timeout;
+
+	// Start HSE
+	RCC->CR |= RCC_CR_HSEBYP;
+	RCC->CR |= RCC_CR_HSEON;
+
+	// Wait until HSE is ready
+	timeout = 1000;
+
+	do
+	{
+		status = RCC->CR & RCC_CR_HSERDY;
+		timeout--;
+	} while ((status == 0) && (timeout > 0));
+
+	if (timeout == 0) return (1); 	// HSE error
+
+
+	// Configure Flash latency according to the speed (2WS)
+	FLASH->ACR &= ~FLASH_ACR_LATENCY;
+	FLASH->ACR |= 0x02 <<0;
+
+	// Configure the main PLL
+	#define PLL_MUL		9	// 8MHz HSE to 72MHz
+	RCC->CFGR |= (PLL_MUL-2) <<18;
+
+	// Set HSE as PLL input
+	RCC->CFGR |= RCC_CFGR_PLLSRC_HSE_PREDIV;
+
+	// Enable the main PLL
+	RCC-> CR |= RCC_CR_PLLON;
+
+	// Configure AHB/APB prescalers
+	// AHB  Prescaler = /1	-> 72 MHz
+	// APB1 Prescaler = /2  -> 36/72 MHz
+	// APB2 Prescaler = /1  -> 72 MHz
+	RCC->CFGR |= RCC_CFGR_HPRE_DIV1;
+	RCC->CFGR |= RCC_CFGR_PPRE2_DIV1;
+	RCC->CFGR |= RCC_CFGR_PPRE1_DIV2;
+
+	// Wait until PLL is ready
+	timeout = 1000;
+
+	do
+	{
+		status = RCC->CR & RCC_CR_PLLRDY;
+		timeout--;
+	} while ((status == 0) && (timeout > 0));
+
+	if (timeout == 0) return (2); 	// PLL error
+
+
+	// Select the main PLL as system clock source
+	RCC->CFGR &= ~RCC_CFGR_SW;
+	RCC->CFGR |= RCC_CFGR_SW_PLL;
+
+	// Wait until PLL is switched on
+	timeout = 1000;
+
+	do
+	{
+		status = RCC->CR & RCC_CR_PLLRDY;
+		timeout--;
+	} while ((status != RCC_CFGR_SWS_PLL) && (timeout > 0));
+
+	if (timeout == 0) return (3); 	// SW error
+
+
+	// Update System core clock
+	SystemCoreClockUpdate();
+	return (0);
+}
+
+#endif
